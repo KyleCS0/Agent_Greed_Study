@@ -1,7 +1,7 @@
 # Are Coding Agents Too Greedy?
 ### Measuring Short-Horizon Bias in LLM-Driven GPU Kernel Optimization
 
-> **Kyle Chen · Young Lee**
+> **Kuan-Lei Wu · Sheng Chen · Young Lee**
 
 GPU kernel optimization is path-dependent: a first edit that yields a quick speedup can consume registers, reduce occupancy, and block better long-term directions. This repository contains the full experiment studying whether Claude's optimization preference is aligned with short-term payoff, longer-horizon peak speedup, or neither — and what happens when you explicitly tell it to plan for the latter.
 
