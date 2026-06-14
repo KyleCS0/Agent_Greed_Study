@@ -1,0 +1,47 @@
+{
+  "created_date": "2026-05-27",
+  "host_timezone": "Asia/Taipei",
+  "hecbench": {
+    "path": "vendor/HeCBench",
+    "commit": "f27000a5188f8ac79bd43fc95a1b3f890c18823d"
+  },
+  "environment": {
+    "gpu": "NVIDIA GeForce RTX 3080 Ti",
+    "driver_cuda_version": "13.0",
+    "nvidia_driver": "580.126.09",
+    "nvcc": "Cuda compilation tools, release 12.0, V12.0.140",
+    "ncu": "Nsight Compute CLI 2022.4.1.0"
+  },
+  "profiling": {
+    "status": "blocked",
+    "blocker": "ERR_NVGPUCTRPERM: current user lacks NVIDIA GPU performance-counter permission.",
+    "resolution": "Create /etc/modprobe.d/nvidia-profiler.conf with: options nvidia NVreg_RestrictProfilingToAdminUsers=0; then run update-initramfs and reboot."
+  },
+  "locked_defaults": {
+    "warmup_runs": 1,
+    "timing_runs": 5,
+    "timing_statistic": "median",
+    "speedup_formula": "baseline_median_ms / new_median_ms",
+    "failed_iteration_counts": true,
+    "worker_history": "full_branch_history",
+    "branch_start": "original_baseline_kernel"
+  },
+  "open_decisions": [
+    {
+      "id": "reduction_kernel_name",
+      "question": "Proposal names reduction-cuda, but current HecBench commit contains atomicReduction-cuda. Confirm intended kernel."
+    },
+    {
+      "id": "histogram_variant",
+      "question": "Confirm smem_atomics as the selected histogram variant."
+    },
+    {
+      "id": "stencil_reference_output",
+      "question": "Confirm whether to enable DUMP output for reference comparisons or add a compact checksum path."
+    },
+    {
+      "id": "ncu_permission",
+      "question": "Enable performance-counter permissions before baseline profile capture."
+    }
+  ]
+}

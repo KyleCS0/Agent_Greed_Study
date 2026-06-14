@@ -1,0 +1,22 @@
+[
+  {
+    "rank": 1,
+    "plan": "Improve the softmax row memory access pattern by reducing repeated global reads across the max, sum, and writeback phases. Start by caching per-row values where practical, preserve numerical stability around max subtraction, and verify that any extra storage does not reduce occupancy enough to erase the memory benefit."
+  },
+  {
+    "rank": 2,
+    "plan": "Replace the cooperative-groups warp reductions with explicit shuffle-based reductions specialized for the fixed slice size. Keep the algorithm numerically equivalent, avoid changing the row mapping initially, and compare whether instruction overhead and synchronization decrease after each focused change."
+  },
+  {
+    "rank": 3,
+    "plan": "Tune the mapping between rows, warps, and blocks to improve scheduling and occupancy. Try changing how many rows each block handles, watch register pressure and launch geometry carefully, and avoid combining this with memory-layout changes in the same iteration."
+  },
+  {
+    "rank": 4,
+    "plan": "Reduce duplicated exponential work by computing reusable intermediate values when it does not change softmax results. Be careful with fast-math behavior and floating-point tolerance, and validate that any local storage or extra loop structure does not add more overhead than it removes."
+  },
+  {
+    "rank": 5,
+    "plan": "Specialize constants such as slice size, block size, and loop structure to help the compiler unroll and simplify control flow. Make one specialization at a time, check that the benchmark arguments still match the assumptions, and revert if the change reduces flexibility without improving timing."
+  }
+]

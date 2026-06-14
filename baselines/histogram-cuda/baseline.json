@@ -1,0 +1,15 @@
+{
+  "kernel": "histogram-cuda",
+  "status": "baseline_locked",
+  "source_dir": "vendor/HeCBench/src/histogram-cuda",
+  "binary": "./main",
+  "run_args": ["--i=100"],
+  "timing_regex": "Avg time\\s*([0-9.]+)\\s*us\\s*\\(100 iterations\\)",
+  "timing_unit": "us",
+  "selected_variant": "smem_atomics",
+  "baseline_locked": true,
+  "baseline_median_ms": 0.024787,
+  "baseline_timing_runs_ms": [0.024778, 0.024793, 0.024833, 0.024787, 0.024327],
+  "baseline_timing_rel_stddev": 0.008564523921269773,
+  "notes": "Baseline locked from planner run (cond_A). RTX 4090, sm_89, --i=100, smem_atomics variant."
+}

@@ -1,0 +1,63 @@
+{
+  "compile_log": "$ make ARCH=sm_89\nnvcc  -std=c++17 -Xcompiler -Wall -arch=sm_89 -O3 -c main.cu -o main.o\nnvcc  -std=c++17 -Xcompiler -Wall -arch=sm_89 -O3 main.o -o main \n",
+  "correctness_diff": null,
+  "policy_violations": null,
+  "profile_digest": "Hardware counters:   available from Nsight Compute\nBound hint:          likely memory-latency limited\n\nOccupancy / utilization:\n  achieved occupancy:        76.1%\n  FMA pipe utilization:      14.9%\n  warp issue selected:       4.3%\n\nGlobal memory:\n  load bandwidth:            732.0 GB/s\n  store bandwidth:           732.0 GB/s\n  global load efficiency:    100.0%\n  L2 read hit rate:          unknown\n\nShared memory:\n  load bank conflicts:       542768\n  store bank conflicts:      565841\n\nWarp stalls:\n  memory / long scoreboard:  67.2%\n  barrier:                   6.8%\n  short dependency:          2.2%\n  wait:                      8.0%\n\nTop stall reasons:\n  memory/long scoreboard: 67.2%\n  wait: 8.0%\n  barrier: 6.8%\n\nInterpretation hints:\n  - occupancy below ~25% often points to register/smem/resource limits\n  - high memory/long-scoreboard stalls point to memory latency or cache misses\n  - global load efficiency below ~85% suggests uncoalesced/wasted transactions\n  - any shared-memory bank conflicts are worth investigating when smem is used\n  - compare load/store bandwidth against expected GPU peak before assuming bandwidth saturation\n\nStatic compiler resources:\n  _Z17bitonic_sort_smemiiiPi: regs/thread=46, static_smem=0 bytes\n  _Z12bitonic_sortiiPi: regs/thread=16, static_smem=0 bytes\n",
+  "program_output": "\nArray size: 16777216, seed: 2\nBitonic sort (parallel)..\nTotal kernel execution time: 12.941729 (ms)\nBitonic sort (serial)..\nPASS\n",
+  "raw_files": [
+    "raw/compile_log.txt",
+    "raw/program_output.txt",
+    "raw/warmup_output.txt",
+    "raw/timing_raw.txt",
+    "raw/speedup.txt",
+    "raw/ptxas_log.txt",
+    "raw/static_resources.json",
+    "raw/profile.csv",
+    "raw/profile_digest.txt"
+  ],
+  "result": {
+    "baseline_median_ms": 13.213934,
+    "kernel": "bitonic-sort-cuda",
+    "kernel_path": "experiments/bitonic-sort-cuda/cond_B/workers/branch_4/src",
+    "median_ms": 12.945625,
+    "profile_backend": "ncu",
+    "profile_command": "sudo -n ncu",
+    "profile_digest_path": "raw/profile_digest.txt",
+    "speedup": 1.0207258436730555,
+    "status": "correct",
+    "timing_rel_stddev": 0.0005834579278263698,
+    "timing_runs_ms": [
+      12.947157,
+      12.939634,
+      12.945178,
+      12.945625,
+      12.960045
+    ]
+  },
+  "static_resources": {
+    "available": true,
+    "entries": [
+      {
+        "function": "_Z17bitonic_sort_smemiiiPi",
+        "regs_per_thread": 46,
+        "static_smem_bytes": 0
+      },
+      {
+        "function": "_Z12bitonic_sortiiPi",
+        "regs_per_thread": 16,
+        "static_smem_bytes": 0
+      }
+    ]
+  },
+  "status": "correct",
+  "summary": {
+    "baseline_median_ms": 13.213934,
+    "median_ms": 12.945625,
+    "profile_backend": "ncu",
+    "profile_command": "sudo -n ncu",
+    "speedup": 1.0207258436730555,
+    "status": "correct",
+    "timing_rel_stddev": 0.0005834579278263698
+  },
+  "timing": "run_1_ms=12.947157\nrun_2_ms=12.939634\nrun_3_ms=12.945178\nrun_4_ms=12.945625\nrun_5_ms=12.960045\nmedian_ms=12.945625\nrelative_stddev=0.000583457928\n\nrun 1\n\nArray size: 16777216, seed: 2\nBitonic sort (parallel)..\nTotal kernel execution time: 12.947157 (ms)\nBitonic sort (serial)..\nPASS\n\nrun 2\n\nArray size: 16777216, seed: 2\nBitonic sort (parallel)..\nTotal kernel execution time: 12.939634 (ms)\nBitonic sort (serial)..\nPASS\n\nrun 3\n\nArray size: 16777216, seed: 2\nBitonic sort (parallel)..\nTotal kernel execution time: 12.945178 (ms)\nBitonic sort (serial)..\nPASS\n\nrun 4\n\nArray size: 16777216, seed: 2\nBitonic sort (parallel)..\nTotal kernel execution time: 12.945625 (ms)\nBitonic sort (serial)..\nPASS\n\nrun 5\n\nArray size: 16777216, seed: 2\nBitonic sort (parallel)..\nTotal kernel execution time: 12.960045 (ms)\nBitonic sort (serial)..\nPASS\n"
+}

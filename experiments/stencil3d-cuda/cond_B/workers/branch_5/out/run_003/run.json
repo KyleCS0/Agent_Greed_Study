@@ -1,0 +1,59 @@
+{
+  "compile_log": "$ make\nnvcc  -std=c++17 -Xcompiler -Wall -arch=sm_60 -O3 -c main.cu -o main.o\nnvcc warning : Support for offline compilation for architectures prior to '<compute/sm/lto>_75' will be removed in a future release (Use -Wno-deprecated-gpu-targets to suppress warning).\nnvcc  -std=c++17 -Xcompiler -Wall -arch=sm_60 -O3 main.o -o main \nnvcc warning : Support for offline compilation for architectures prior to '<compute/sm/lto>_75' will be removed in a future release (Use -Wno-deprecated-gpu-targets to suppress warning).\n",
+  "correctness_diff": null,
+  "policy_violations": null,
+  "profile_digest": null,
+  "program_output": "Grid dimension: nx=256 ny=256 nz=256\nAverage kernel execution time: 0.001991 (s)\n",
+  "raw_files": [
+    "raw/compile_log.txt",
+    "raw/program_output.txt",
+    "raw/warmup_output.txt",
+    "raw/timing_raw.txt",
+    "raw/speedup.txt",
+    "raw/ptxas_log.txt",
+    "raw/static_resources.json",
+    "raw/profile.csv",
+    "raw/profile_nsys.log",
+    "raw/profile_nsys.nsys-rep"
+  ],
+  "result": {
+    "baseline_median_ms": 5.483,
+    "kernel": "stencil3d-cuda",
+    "kernel_path": "experiments/stencil3d-cuda/cond_B/workers/branch_5/src",
+    "median_ms": 1.984,
+    "profile_backend": null,
+    "profile_command": "ncu",
+    "profile_digest_path": null,
+    "speedup": 2.763608870967742,
+    "status": "profile_error",
+    "timing_rel_stddev": 0.00035640462761418756,
+    "timing_runs_ms": [
+      1.984,
+      1.984,
+      1.984,
+      1.9829999999999999,
+      1.9849999999999999
+    ]
+  },
+  "static_resources": {
+    "available": true,
+    "entries": [
+      {
+        "function": "_Z9stencil3dPKdPdS0_S0_S0_iii",
+        "regs_per_thread": 40,
+        "static_smem_bytes": 0
+      }
+    ]
+  },
+  "status": "profile_error",
+  "summary": {
+    "baseline_median_ms": 5.483,
+    "median_ms": 1.984,
+    "profile_backend": null,
+    "profile_command": "ncu",
+    "speedup": 2.763608870967742,
+    "status": "profile_error",
+    "timing_rel_stddev": 0.00035640462761418756
+  },
+  "timing": "run_1_ms=1.984\nrun_2_ms=1.984\nrun_3_ms=1.984\nrun_4_ms=1.983\nrun_5_ms=1.985\nmedian_ms=1.984\nrelative_stddev=0.000356404628\n\nrun 1\nGrid dimension: nx=256 ny=256 nz=256\nAverage kernel execution time: 0.001984 (s)\n\nrun 2\nGrid dimension: nx=256 ny=256 nz=256\nAverage kernel execution time: 0.001984 (s)\n\nrun 3\nGrid dimension: nx=256 ny=256 nz=256\nAverage kernel execution time: 0.001984 (s)\n\nrun 4\nGrid dimension: nx=256 ny=256 nz=256\nAverage kernel execution time: 0.001983 (s)\n\nrun 5\nGrid dimension: nx=256 ny=256 nz=256\nAverage kernel execution time: 0.001985 (s)\n"
+}

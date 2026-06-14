@@ -1,0 +1,5 @@
+condition,horizon,mean_regret
+A,Iteration 1,0.11721337075748242
+A,Peak over 7,0.2606203646962415
+B,Iteration 1,0.05322616684151309
+B,Peak over 7,0.10829668146305645

@@ -1,0 +1,9 @@
+"ID","Process ID","Process Name","Host Name","Kernel Name","Metric Name","Metric Unit","Metric Value"
+"1","1","main","host","kernel","sm__warps_active.avg.pct_of_peak_sustained_active","%","42.5"
+"1","1","main","host","kernel","l1tex__t_sector_hit_rate.pct","%","34.0"
+"1","1","main","host","kernel","lts__t_sector_hit_rate.pct","%","61.0"
+"1","1","main","host","kernel","dram__bytes.sum.per_second","byte/s","312000000000"
+"1","1","main","host","kernel","smsp__warp_issue_stalled_long_scoreboard_per_warp_active.pct","%","22.0"
+"1","1","main","host","kernel","smsp__warp_issue_stalled_barrier_per_warp_active.pct","%","8.0"
+"1","1","main","host","kernel","smsp__warp_issue_stalled_mio_throttle_per_warp_active.pct","%","45.0"
+

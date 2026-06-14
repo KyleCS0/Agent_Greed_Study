@@ -1,0 +1,63 @@
+{
+  "compile_log": "$ make\nnvcc  -std=c++17 -Xcompiler -Wall -arch=sm_60 -O3 --use_fast_math -c main.cu -o main.o\nnvcc warning : Support for offline compilation for architectures prior to '<compute/sm/lto>_75' will be removed in a future release (Use -Wno-deprecated-gpu-targets to suppress warning).\nnvcc  -std=c++17 -Xcompiler -Wall -arch=sm_60 -O3 --use_fast_math main.o -o main \nnvcc warning : Support for offline compilation for architectures prior to '<compute/sm/lto>_75' will be removed in a future release (Use -Wno-deprecated-gpu-targets to suppress warning).\n",
+  "correctness_diff": null,
+  "policy_violations": null,
+  "profile_digest": "Hardware counters:   available from Nsight Compute\nBound hint:          likely memory-latency limited\n\nOccupancy / utilization:\n  achieved occupancy:        96.6%\n  FMA pipe utilization:      6.6%\n  warp issue selected:       2.1%\n\nGlobal memory:\n  load bandwidth:            930.6 GB/s\n  store bandwidth:           465.3 GB/s\n  global load efficiency:    100.0%\n  L2 read hit rate:          unknown\n\nShared memory:\n  load bank conflicts:       0\n  store bank conflicts:      0\n\nWarp stalls:\n  memory / long scoreboard:  61.0%\n  barrier:                   26.4%\n  short dependency:          4.0%\n  wait:                      3.9%\n\nTop stall reasons:\n  memory/long scoreboard: 61.0%\n  barrier: 26.4%\n  short dependency: 4.0%\n\nInterpretation hints:\n  - occupancy below ~25% often points to register/smem/resource limits\n  - high memory/long-scoreboard stalls point to memory latency or cache misses\n  - global load efficiency below ~85% suggests uncoalesced/wasted transactions\n  - any shared-memory bank conflicts are worth investigating when smem is used\n  - compare load/store bandwidth against expected GPU peak before assuming bandwidth saturation\n\nStatic compiler resources:\n  _Z8softMax2iiPKfPf: regs/thread=18, static_smem=0 bytes\n  _Z7softMaxiiPKfPf: regs/thread=32, static_smem=0 bytes\n",
+  "program_output": "Average kernel execution time: 5.369226 (ms)\nPASS\n",
+  "raw_files": [
+    "raw/compile_log.txt",
+    "raw/program_output.txt",
+    "raw/warmup_output.txt",
+    "raw/timing_raw.txt",
+    "raw/speedup.txt",
+    "raw/ptxas_log.txt",
+    "raw/static_resources.json",
+    "raw/profile.csv",
+    "raw/profile_digest.txt"
+  ],
+  "result": {
+    "baseline_median_ms": 6.847924,
+    "kernel": "softmax-cuda",
+    "kernel_path": "experiments/softmax-cuda/cond_A/workers/branch_5/src",
+    "median_ms": 4.08458,
+    "profile_backend": "ncu",
+    "profile_command": "ncu",
+    "profile_digest_path": "raw/profile_digest.txt",
+    "speedup": 1.676530757140269,
+    "status": "correct",
+    "timing_rel_stddev": 0.00015487801829711003,
+    "timing_runs_ms": [
+      4.08458,
+      4.083483,
+      4.084971,
+      4.084449,
+      4.08508
+    ]
+  },
+  "static_resources": {
+    "available": true,
+    "entries": [
+      {
+        "function": "_Z8softMax2iiPKfPf",
+        "regs_per_thread": 18,
+        "static_smem_bytes": 0
+      },
+      {
+        "function": "_Z7softMaxiiPKfPf",
+        "regs_per_thread": 32,
+        "static_smem_bytes": 0
+      }
+    ]
+  },
+  "status": "correct",
+  "summary": {
+    "baseline_median_ms": 6.847924,
+    "median_ms": 4.08458,
+    "profile_backend": "ncu",
+    "profile_command": "ncu",
+    "speedup": 1.676530757140269,
+    "status": "correct",
+    "timing_rel_stddev": 0.00015487801829711003
+  },
+  "timing": "run_1_ms=4.08458\nrun_2_ms=4.083483\nrun_3_ms=4.084971\nrun_4_ms=4.084449\nrun_5_ms=4.08508\nmedian_ms=4.08458\nrelative_stddev=0.000154878018\n\nrun 1\nAverage kernel execution time: 4.084580 (ms)\nPASS\n\nrun 2\nAverage kernel execution time: 4.083483 (ms)\nPASS\n\nrun 3\nAverage kernel execution time: 4.084971 (ms)\nPASS\n\nrun 4\nAverage kernel execution time: 4.084449 (ms)\nPASS\n\nrun 5\nAverage kernel execution time: 4.085080 (ms)\nPASS\n"
+}

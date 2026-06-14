@@ -1,0 +1,154 @@
+{
+  "branches": [
+    {
+      "actual_rank_long": 2.0,
+      "actual_rank_short": 1.0,
+      "attempt_statuses": [
+        "correct",
+        "correct",
+        "correct",
+        "correct",
+        "correct",
+        "correct",
+        "correct"
+      ],
+      "counted_statuses": [
+        "correct",
+        "correct",
+        "correct",
+        "correct",
+        "correct",
+        "correct",
+        "correct"
+      ],
+      "extra_successful_runs": 0,
+      "num_attempts_total": 7,
+      "num_successful_iterations": 7,
+      "peak_speedup_7": 1.4643469014001298,
+      "rank": 1,
+      "speedup_iter1": 1.0754045728665018
+    },
+    {
+      "actual_rank_long": 1.0,
+      "actual_rank_short": 5.0,
+      "attempt_statuses": [
+        "correct",
+        "correct",
+        "correct",
+        "correct",
+        "correct",
+        "correct",
+        "correct"
+      ],
+      "counted_statuses": [
+        "correct",
+        "correct",
+        "correct",
+        "correct",
+        "correct",
+        "correct",
+        "correct"
+      ],
+      "extra_successful_runs": 0,
+      "num_attempts_total": 7,
+      "num_successful_iterations": 7,
+      "peak_speedup_7": 2.286201807784541,
+      "rank": 2,
+      "speedup_iter1": 0.5991250120854684
+    },
+    {
+      "actual_rank_long": 4.0,
+      "actual_rank_short": 3.0,
+      "attempt_statuses": [
+        "compile_error",
+        "correct",
+        "correct",
+        "correct",
+        "correct",
+        "correct",
+        "correct",
+        "correct",
+        "iteration_limit",
+        "iteration_limit"
+      ],
+      "counted_statuses": [
+        "correct",
+        "correct",
+        "correct",
+        "correct",
+        "correct",
+        "correct",
+        "correct"
+      ],
+      "extra_successful_runs": 0,
+      "num_attempts_total": 10,
+      "num_successful_iterations": 7,
+      "peak_speedup_7": 1.002223839560084,
+      "rank": 3,
+      "speedup_iter1": 0.969567768433405
+    },
+    {
+      "actual_rank_long": 5.0,
+      "actual_rank_short": 2.0,
+      "attempt_statuses": [
+        "correctness_fail",
+        "correct",
+        "correct",
+        "correct",
+        "correct",
+        "correct",
+        "correct",
+        "correct",
+        "iteration_limit",
+        "iteration_limit"
+      ],
+      "counted_statuses": [
+        "correct",
+        "correct",
+        "correct",
+        "correct",
+        "correct",
+        "correct",
+        "correct"
+      ],
+      "extra_successful_runs": 0,
+      "num_attempts_total": 10,
+      "num_successful_iterations": 7,
+      "peak_speedup_7": 1.0019807583474816,
+      "rank": 4,
+      "speedup_iter1": 0.9947826784925954
+    },
+    {
+      "actual_rank_long": 3.0,
+      "actual_rank_short": 4.0,
+      "attempt_statuses": [
+        "correct",
+        "correct",
+        "correct",
+        "correct",
+        "correct",
+        "correct",
+        "correct"
+      ],
+      "counted_statuses": [
+        "correct",
+        "correct",
+        "correct",
+        "correct",
+        "correct",
+        "correct",
+        "correct"
+      ],
+      "extra_successful_runs": 0,
+      "num_attempts_total": 7,
+      "num_successful_iterations": 7,
+      "peak_speedup_7": 1.0251457876669838,
+      "rank": 5,
+      "speedup_iter1": 0.6114509842616804
+    }
+  ],
+  "condition": "B",
+  "kernel": "histogram-cuda",
+  "spearman_iter1": 0.29999999999999993,
+  "spearman_peak7": 0.5999999999999999
+}

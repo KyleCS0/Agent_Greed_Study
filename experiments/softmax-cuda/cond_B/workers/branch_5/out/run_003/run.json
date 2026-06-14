@@ -1,0 +1,36 @@
+{
+  "compile_log": "$ make\nnvcc  -std=c++17 -Xcompiler -Wall -arch=sm_60 -O3 --use_fast_math -c main.cu -o main.o\nnvcc  -std=c++17 -Xcompiler -Wall -arch=sm_60 -O3 --use_fast_math main.o -o main \n",
+  "correctness_diff": "missing pass token: PASS\n",
+  "policy_violations": null,
+  "profile_digest": null,
+  "program_output": "Average kernel execution time: 151.048691 (ms)\n@index 6 host: 0.009736 device: 0.000000\nFAIL\n",
+  "raw_files": [
+    "raw/compile_log.txt",
+    "raw/program_output.txt",
+    "raw/correctness_diff.txt"
+  ],
+  "result": {
+    "baseline_median_ms": null,
+    "kernel": "softmax-cuda",
+    "kernel_path": "experiments/softmax-cuda/cond_B/workers/branch_5/src",
+    "median_ms": null,
+    "profile_backend": null,
+    "profile_digest_path": null,
+    "speedup": null,
+    "status": "correctness_fail",
+    "timing_rel_stddev": null,
+    "timing_runs_ms": []
+  },
+  "static_resources": null,
+  "status": "correctness_fail",
+  "summary": {
+    "baseline_median_ms": null,
+    "median_ms": null,
+    "profile_backend": null,
+    "profile_command": null,
+    "speedup": null,
+    "status": "correctness_fail",
+    "timing_rel_stddev": null
+  },
+  "timing": null
+}

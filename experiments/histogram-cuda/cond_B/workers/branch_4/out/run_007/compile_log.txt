@@ -1,0 +1,131 @@
+$ make
+nvcc  -std=c++17 -Xcompiler -Wall -arch=sm_60 -O3 -c histogram_compare.cu -o histogram_compare.o
+histogram_compare.cu(123): warning #1650-D: result of call is not used
+          fread(&colormaporigin, 2, 1, fptr);
+          ^
+
+Remark: The warnings can be suppressed with "-diag-suppress <warning-number>"
+
+histogram_compare.cu(124): warning #1650-D: result of call is not used
+          fread(&colormaplength, 2, 1, fptr);
+          ^
+
+histogram_compare.cu(126): warning #1650-D: result of call is not used
+          fread(&x_origin, 2, 1, fptr);
+          ^
+
+histogram_compare.cu(127): warning #1650-D: result of call is not used
+          fread(&y_origin, 2, 1, fptr);
+          ^
+
+histogram_compare.cu(128): warning #1650-D: result of call is not used
+          fread(&width, 2, 1, fptr);
+          ^
+
+histogram_compare.cu(129): warning #1650-D: result of call is not used
+          fread(&height, 2, 1, fptr);
+          ^
+
+histogram_compare.cu(123): warning #1650-D: result of call is not used
+          fread(&colormaporigin, 2, 1, fptr);
+          ^
+
+Remark: The warnings can be suppressed with "-diag-suppress <warning-number>"
+
+histogram_compare.cu(124): warning #1650-D: result of call is not used
+          fread(&colormaplength, 2, 1, fptr);
+          ^
+
+histogram_compare.cu(126): warning #1650-D: result of call is not used
+          fread(&x_origin, 2, 1, fptr);
+          ^
+
+histogram_compare.cu(127): warning #1650-D: result of call is not used
+          fread(&y_origin, 2, 1, fptr);
+          ^
+
+histogram_compare.cu(128): warning #1650-D: result of call is not used
+          fread(&width, 2, 1, fptr);
+          ^
+
+histogram_compare.cu(129): warning #1650-D: result of call is not used
+          fread(&height, 2, 1, fptr);
+          ^
+
+mersenne.h: In function ‘void mersenne::init_genrand(unsigned int)’:
+mersenne.h:62:19: warning: comparison of integer expressions of different signedness: ‘int’ and ‘const unsigned int’ [-Wsign-compare]
+   62 |     for (mti = 1; mti < N; mti++)
+      |               ~~~~^~~
+mersenne.h: In function ‘void mersenne::init_by_array(unsigned int*, int)’:
+mersenne.h:86:9: warning: comparison of integer expressions of different signedness: ‘const unsigned int’ and ‘int’ [-Wsign-compare]
+   86 |     k = (N > key_length ? N : key_length);
+      |       ~~^~~~~~~~~~~~
+mersenne.h:94:7: warning: comparison of integer expressions of different signedness: ‘int’ and ‘const unsigned int’ [-Wsign-compare]
+   94 |         if (i >= N)
+      |       ^ ~~
+mersenne.h:106:7: warning: comparison of integer expressions of different signedness: ‘int’ and ‘const unsigned int’ [-Wsign-compare]
+  106 |         if (i >= N)
+      |       ^ ~~
+mersenne.h: In function ‘unsigned int mersenne::genrand_int32()’:
+mersenne.h:124:9: warning: comparison of integer expressions of different signedness: ‘int’ and ‘const unsigned int’ [-Wsign-compare]
+  124 |     if (mti >= N)
+      |     ~~~~^~~~
+mersenne.h:131:17: warning: comparison of integer expressions of different signedness: ‘int’ and ‘unsigned int’ [-Wsign-compare]
+  131 |         for (kk = 0; kk < N - M; kk++)
+      |              ~~~^~~~~~~~~
+mersenne.h:136:11: warning: comparison of integer expressions of different signedness: ‘int’ and ‘unsigned int’ [-Wsign-compare]
+  136 |         for (; kk < N - 1; kk++)
+      |         ~~^~~~~~~~~~~
+test_util.h: In function ‘bool IsNaN(T) [with T = float]’:
+test_util.h:314:56: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+  314 |     volatile unsigned int bits = reinterpret_cast<unsigned int &>(val);
+      |                                                        ^~~
+test_util.h: In function ‘bool IsNaN(T) [with T = double]’:
+test_util.h:349:38: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+  349 |     volatile unsigned long long bits = *reinterpret_cast<unsigned long long *>(&val);
+      |                                     ~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+histogram_compare.cu: In function ‘void ReadTga(uchar4*&, int&, int&, const char*)’:
+histogram_compare.cu:242:44: warning: comparison of integer expressions of different signedness: ‘size_t’ {aka ‘long unsigned int’} and ‘int’ [-Wsign-compare]
+  242 |             if (fread(tga_pixel, 1, pixel_bytes, fptr) != pixel_bytes)
+      |             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~
+histogram_compare.cu:253:48: warning: comparison of integer expressions of different signedness: ‘size_t’ {aka ‘long unsigned int’} and ‘int’ [-Wsign-compare]
+  253 |             if (fread(tga_pixel, 1, pixel_bytes + 1, fptr) != pixel_bytes + 1)
+      |             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~
+histogram_compare.cu:276:44: warning: comparison of integer expressions of different signedness: ‘size_t’ {aka ‘long unsigned int’} and ‘int’ [-Wsign-compare]
+  276 |                     if (fread(tga_pixel, 1, pixel_bytes, fptr) != pixel_bytes)
+      |                     ~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~
+histogram_compare.cu: In function ‘int main(int, char**)’:
+histogram_compare.cu:649:19: warning: comparison of integer expressions of different signedness: ‘int’ and ‘std::vector<std::__cxx11::basic_string<char> >::size_type’ {aka ‘long unsigned int’} [-Wsign-compare]
+  649 |         for (int i = 0; i < file_tests.size(); ++i)
+      |                 ~~^~~~~~~~~~~~~~~~~~~
+histogram_compare.cu: In instantiation of ‘void TestMethods(PixelType*, int, int, int, double) [with int NUM_CHANNELS = 1; int ACTIVE_CHANNELS = 1; int NUM_BINS = 256; PixelType = uchar1]’:
+histogram_compare.cu:522:25:   required from here
+histogram_compare.cu:480:19: warning: comparison of integer expressions of different signedness: ‘int’ and ‘std::vector<std::pair<std::__cxx11::basic_string<char>, double> >::size_type’ {aka ‘long unsigned int’} [-Wsign-compare]
+  480 |         for (int i = 0; i < timings.size(); i++)
+      |                 ~~^~~~~~~~~~~~~~~~
+histogram_compare.cu: In instantiation of ‘void TestMethods(PixelType*, int, int, int, double) [with int NUM_CHANNELS = 4; int ACTIVE_CHANNELS = 3; int NUM_BINS = 256; PixelType = uchar4]’:
+histogram_compare.cu:529:25:   required from here
+histogram_compare.cu:480:19: warning: comparison of integer expressions of different signedness: ‘int’ and ‘std::vector<std::pair<std::__cxx11::basic_string<char>, double> >::size_type’ {aka ‘long unsigned int’} [-Wsign-compare]
+histogram_compare.cu: In instantiation of ‘void TestMethods(PixelType*, int, int, int, double) [with int NUM_CHANNELS = 4; int ACTIVE_CHANNELS = 3; int NUM_BINS = 256; PixelType = float4]’:
+histogram_compare.cu:546:25:   required from here
+histogram_compare.cu:480:19: warning: comparison of integer expressions of different signedness: ‘int’ and ‘std::vector<std::pair<std::__cxx11::basic_string<char>, double> >::size_type’ {aka ‘long unsigned int’} [-Wsign-compare]
+histogram_compare.cu: In member function ‘void TgaHeader::Parse(FILE*)’:
+histogram_compare.cu:123:6: warning: ignoring return value of ‘size_t fread(void*, size_t, size_t, FILE*)’ declared with attribute ‘warn_unused_result’ [-Wunused-result]
+  123 |         fread(&colormaporigin, 2, 1, fptr);
+      |      ^  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+histogram_compare.cu:124:6: warning: ignoring return value of ‘size_t fread(void*, size_t, size_t, FILE*)’ declared with attribute ‘warn_unused_result’ [-Wunused-result]
+  124 |         fread(&colormaplength, 2, 1, fptr);
+      |      ^  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+histogram_compare.cu:126:6: warning: ignoring return value of ‘size_t fread(void*, size_t, size_t, FILE*)’ declared with attribute ‘warn_unused_result’ [-Wunused-result]
+  126 |         fread(&x_origin, 2, 1, fptr);
+      |      ^  ~~~~~~~~~~~~~~~~~~~~~~
+histogram_compare.cu:127:6: warning: ignoring return value of ‘size_t fread(void*, size_t, size_t, FILE*)’ declared with attribute ‘warn_unused_result’ [-Wunused-result]
+  127 |         fread(&y_origin, 2, 1, fptr);
+      |      ^  ~~~~~~~~~~~~~~~~~~~~~~
+histogram_compare.cu:128:6: warning: ignoring return value of ‘size_t fread(void*, size_t, size_t, FILE*)’ declared with attribute ‘warn_unused_result’ [-Wunused-result]
+  128 |         fread(&width, 2, 1, fptr);
+      |      ^  ~~~~~~~~~~~~~~~~~~~
+histogram_compare.cu:129:6: warning: ignoring return value of ‘size_t fread(void*, size_t, size_t, FILE*)’ declared with attribute ‘warn_unused_result’ [-Wunused-result]
+  129 |         fread(&height, 2, 1, fptr);
+      |      ^  ~~~~~~~~~~~~~~~~~~~~
+nvcc  -std=c++17 -Xcompiler -Wall -arch=sm_60 -O3 histogram_compare.o -o main 

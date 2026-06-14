@@ -1,0 +1,164 @@
+{
+  "kernels": {
+    "softmax-cuda": {
+      "source_dir": "vendor/HeCBench/src/softmax-cuda",
+      "build_command": [
+        "make"
+      ],
+      "clean_command": [
+        "make",
+        "clean"
+      ],
+      "binary": "./main",
+      "run_args": [
+        "600000",
+        "784",
+        "1",
+        "30"
+      ],
+      "timing": {
+        "regex": "Average kernel execution time:\\s*([0-9.]+)\\s*\\(ms\\)",
+        "unit": "ms"
+      },
+      "correctness": {
+        "method": "pass_token",
+        "pass_token": "PASS",
+        "relative_tolerance": 0.0001,
+        "absolute_tolerance": 1e-06
+      },
+      "allowed_files": [
+        "main.cu"
+      ],
+      "notes": [
+        "Makefile naive command with implementation 0 failed correctness on RTX 3080 Ti.",
+        "Use implementation 1 as the softmax experiment target.",
+        "Problem size increased to 600000 slices to exceed 5 ms."
+      ]
+    },
+    "atomicReduction-cuda": {
+      "source_dir": "vendor/HeCBench/src/atomicReduction-cuda",
+      "proposal_name": "reduction-cuda",
+      "build_command": [
+        "make"
+      ],
+      "clean_command": [
+        "make",
+        "clean"
+      ],
+      "binary": "./main",
+      "run_args": [],
+      "timing": {
+        "regex": "The average performance of reduction is\\s*([0-9.]+)\\s*GBytes/sec",
+        "unit": "GBps",
+        "higher_is_better": true
+      },
+      "correctness": {
+        "method": "pass_token",
+        "pass_token": "VERIFICATION: PASS"
+      },
+      "allowed_files": [
+        "kernels.h"
+      ],
+      "notes": [
+        "Current HecBench commit does not contain src/reduction-cuda.",
+        "Observed closest CUDA reduction kernel is src/atomicReduction-cuda.",
+        "Confirm with Kyle before treating this as the proposal's reduction-cuda kernel."
+      ]
+    },
+    "stencil3d-cuda": {
+      "source_dir": "vendor/HeCBench/src/stencil3d-cuda",
+      "build_command": [
+        "make"
+      ],
+      "clean_command": [
+        "make",
+        "clean"
+      ],
+      "binary": "./main",
+      "run_args": [
+        "256",
+        "100"
+      ],
+      "timing": {
+        "regex": "Average kernel execution time:\\s*([0-9.]+)\\s*\\(s\\)",
+        "unit": "s"
+      },
+      "correctness": {
+        "method": "pass_token",
+        "pass_token": "Average kernel execution time:"
+      },
+      "allowed_files": [
+        "main.cu"
+      ],
+      "notes": [
+        "Makefile default size 512 exited without output, likely exceeding available memory.",
+        "Size 256 runs at about 5.5 ms.",
+        "DUMP=yes produces a 484 MB reference file; loading it in check_correctness.py causes OOM. Using pass_token on the timing line instead."
+      ]
+    },
+    "histogram-cuda": {
+      "source_dir": "vendor/HeCBench/src/histogram-cuda",
+      "build_command": [
+        "make"
+      ],
+      "clean_command": [
+        "make",
+        "clean"
+      ],
+      "binary": "./main",
+      "run_args": [
+        "--i=100"
+      ],
+      "timing": {
+        "regex": "Avg time\\s*([0-9.]+)\\s*us\\s*\\(100 iterations\\)",
+        "unit": "us"
+      },
+      "correctness": {
+        "method": "pass_token",
+        "pass_token": "PASS"
+      },
+      "allowed_files": [
+        "histogram_compare.cu",
+        "histogram_smem_atomics.h",
+        "histogram_gmem_atomics.h"
+      ],
+      "selected_variant": "smem_atomics",
+      "notes": [
+        "Both shared-memory and global-memory atomic variants run by default.",
+        "Recommended experiment variant is smem_atomics unless Kyle chooses otherwise."
+      ]
+    },
+    "bitonic-sort-cuda": {
+      "source_dir": "vendor/HeCBench/src/bitonic-sort-cuda",
+      "build_command": [
+        ["make", "ARCH=sm_89"]
+      ],
+      "clean_command": [
+        "make",
+        "clean"
+      ],
+      "arch": "sm_89",
+      "binary": "./main",
+      "run_args": [
+        "24",
+        "2"
+      ],
+      "timing": {
+        "regex": "Total kernel execution time:\\s*([0-9.]+)\\s*\\(ms\\)",
+        "unit": "ms"
+      },
+      "correctness": {
+        "method": "pass_token",
+        "pass_token": "PASS"
+      },
+      "allowed_files": [
+        "main.cu"
+      ],
+      "notes": [
+        "Array size 2^24 = 16M elements; stable ~13.2 ms on RTX 4090.",
+        "Compiled with sm_89 (RTX 4090 native arch); Makefile defaults to sm_60.",
+        "Serial CPU reference is run inside the same binary for correctness verification."
+      ]
+    }
+  }
+}

@@ -1,0 +1,4 @@
+{
+  "condition": "B",
+  "kernel": "histogram-cuda"
+}

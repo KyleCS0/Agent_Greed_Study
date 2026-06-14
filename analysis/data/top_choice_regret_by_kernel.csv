@@ -1,0 +1,17 @@
+kernel,condition,metric,top_choice_speedup,best_speedup,winner_pref,regret
+bitonic-sort,A,speedup_iter1,1.382197,1.382197,1,0.0
+histogram,A,speedup_iter1,0.96828,0.998872,4,0.030626546744728006
+softmax,A,speedup_iter1,1.360243,1.676265,5,0.18852747029855055
+stencil3d,A,speedup_iter1,2.197595,2.928953,3,0.24969946598665113
+bitonic-sort,A,peak_speedup_7,1.382197,2.365751,3,0.4157470503024199
+histogram,A,peak_speedup_7,0.970859,1.520768,2,0.3615995339197037
+softmax,A,peak_speedup_7,1.652681,1.677225,5,0.014633695538761883
+stencil3d,A,peak_speedup_7,2.197595,2.932086,3,0.2505011790240804
+bitonic-sort,B,speedup_iter1,1.180019,1.40939,4,0.16274487544256735
+histogram,B,speedup_iter1,1.075405,1.075405,1,0.0
+softmax,B,speedup_iter1,1.437018,1.512905,4,0.05015979192348498
+stencil3d,B,speedup_iter1,2.927389,2.927389,1,0.0
+bitonic-sort,B,peak_speedup_7,1.914576,1.914576,1,0.0
+histogram,B,peak_speedup_7,1.464347,2.286202,2,0.35948485741854824
+softmax,B,peak_speedup_7,1.438453,1.552905,5,0.07370186843367753
+stencil3d,B,peak_speedup_7,4.984545,4.984545,1,0.0

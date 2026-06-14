@@ -1,0 +1,103 @@
+{
+  "compile_log": "$ make\nnvcc  -std=c++17 -Xcompiler -Wall -arch=sm_60 -O3 -c histogram_compare.cu -o histogram_compare.o\nhistogram_compare.cu(123): warning #1650-D: result of call is not used\n          fread(&colormaporigin, 2, 1, fptr);\n          ^\n\nRemark: The warnings can be suppressed with \"-diag-suppress <warning-number>\"\n\nhistogram_compare.cu(124): warning #1650-D: result of call is not used\n          fread(&colormaplength, 2, 1, fptr);\n          ^\n\nhistogram_compare.cu(126): warning #1650-D: result of call is not used\n          fread(&x_origin, 2, 1, fptr);\n          ^\n\nhistogram_compare.cu(127): warning #1650-D: result of call is not used\n          fread(&y_origin, 2, 1, fptr);\n          ^\n\nhistogram_compare.cu(128): warning #1650-D: result of call is not used\n          fread(&width, 2, 1, fptr);\n          ^\n\nhistogram_compare.cu(129): warning #1650-D: result of call is not used\n          fread(&height, 2, 1, fptr);\n          ^\n\nhistogram_compare.cu(123): warning #1650-D: result of call is not used\n          fread(&colormaporigin, 2, 1, fptr);\n          ^\n\nRemark: The warnings can be suppressed with \"-diag-suppress <warning-number>\"\n\nhistogram_compare.cu(124): warning #1650-D: result of call is not used\n          fread(&colormaplength, 2, 1, fptr);\n          ^\n\nhistogram_compare.cu(126): warning #1650-D: result of call is not used\n          fread(&x_origin, 2, 1, fptr);\n          ^\n\nhistogram_compare.cu(127): warning #1650-D: result of call is not used\n          fread(&y_origin, 2, 1, fptr);\n          ^\n\nhistogram_compare.cu(128): warning #1650-D: result of call is not used\n          fread(&width, 2, 1, fptr);\n          ^\n\nhistogram_compare.cu(129): warning #1650-D: result of call is not used\n          fread(&height, 2, 1, fptr);\n          ^\n\nmersenne.h: In function \u2018void mersenne::init_genrand(unsigned int)\u2019:\nmersenne.h:62:19: warning: comparison of integer expressions of different signedness: \u2018int\u2019 and \u2018const unsigned int\u2019 [-Wsign-compare]\n   62 |     for (mti = 1; mti < N; mti++)\n      |               ~~~~^~~\nmersenne.h: In function \u2018void mersenne::init_by_array(unsigned int*, int)\u2019:\nmersenne.h:86:9: warning: comparison of integer expressions of different signedness: \u2018const unsigned int\u2019 and \u2018int\u2019 [-Wsign-compare]\n   86 |     k = (N > key_length ? N : key_length);\n      |       ~~^~~~~~~~~~~~\nmersenne.h:94:7: warning: comparison of integer expressions of different signedness: \u2018int\u2019 and \u2018const unsigned int\u2019 [-Wsign-compare]\n   94 |         if (i >= N)\n      |       ^ ~~\nmersenne.h:106:7: warning: comparison of integer expressions of different signedness: \u2018int\u2019 and \u2018const unsigned int\u2019 [-Wsign-compare]\n  106 |         if (i >= N)\n      |       ^ ~~\nmersenne.h: In function \u2018unsigned int mersenne::genrand_int32()\u2019:\nmersenne.h:124:9: warning: comparison of integer expressions of different signedness: \u2018int\u2019 and \u2018const unsigned int\u2019 [-Wsign-compare]\n  124 |     if (mti >= N)\n      |     ~~~~^~~~\nmersenne.h:131:17: warning: comparison of integer expressions of different signedness: \u2018int\u2019 and \u2018unsigned int\u2019 [-Wsign-compare]\n  131 |         for (kk = 0; kk < N - M; kk++)\n      |              ~~~^~~~~~~~~\nmersenne.h:136:11: warning: comparison of integer expressions of different signedness: \u2018int\u2019 and \u2018unsigned int\u2019 [-Wsign-compare]\n  136 |         for (; kk < N - 1; kk++)\n      |         ~~^~~~~~~~~~~\ntest_util.h: In function \u2018bool IsNaN(T) [with T = float]\u2019:\ntest_util.h:314:56: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]\n  314 |     volatile unsigned int bits = reinterpret_cast<unsigned int &>(val);\n      |                                                        ^~~\ntest_util.h: In function \u2018bool IsNaN(T) [with T = double]\u2019:\ntest_util.h:349:38: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]\n  349 |     volatile unsigned long long bits = *reinterpret_cast<unsigned long long *>(&val);\n      |                                     ~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nhistogram_compare.cu: In function \u2018void ReadTga(uchar4*&, int&, int&, const char*)\u2019:\nhistogram_compare.cu:242:44: warning: comparison of integer expressions of different signedness: \u2018size_t\u2019 {aka \u2018long unsigned int\u2019} and \u2018int\u2019 [-Wsign-compare]\n  242 |             if (fread(tga_pixel, 1, pixel_bytes, fptr) != pixel_bytes)\n      |             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~\nhistogram_compare.cu:253:48: warning: comparison of integer expressions of different signedness: \u2018size_t\u2019 {aka \u2018long unsigned int\u2019} and \u2018int\u2019 [-Wsign-compare]\n  253 |             if (fread(tga_pixel, 1, pixel_bytes + 1, fptr) != pixel_bytes + 1)\n      |             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~\nhistogram_compare.cu:276:44: warning: comparison of integer expressions of different signedness: \u2018size_t\u2019 {aka \u2018long unsigned int\u2019} and \u2018int\u2019 [-Wsign-compare]\n  276 |                     if (fread(tga_pixel, 1, pixel_bytes, fptr) != pixel_bytes)\n      |                     ~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~\nhistogram_compare.cu: In function \u2018int main(int, char**)\u2019:\nhistogram_compare.cu:649:19: warning: comparison of integer expressions of different signedness: \u2018int\u2019 and \u2018std::vector<std::__cxx11::basic_string<char> >::size_type\u2019 {aka \u2018long unsigned int\u2019} [-Wsign-compare]\n  649 |         for (int i = 0; i < file_tests.size(); ++i)\n      |                 ~~^~~~~~~~~~~~~~~~~~~\nhistogram_compare.cu: In instantiation of \u2018void TestMethods(PixelType*, int, int, int, double) [with int NUM_CHANNELS = 1; int ACTIVE_CHANNELS = 1; int NUM_BINS = 256; PixelType = uchar1]\u2019:\nhistogram_compare.cu:522:25:   required from here\nhistogram_compare.cu:480:19: warning: comparison of integer expressions of different signedness: \u2018int\u2019 and \u2018std::vector<std::pair<std::__cxx11::basic_string<char>, double> >::size_type\u2019 {aka \u2018long unsigned int\u2019} [-Wsign-compare]\n  480 |         for (int i = 0; i < timings.size(); i++)\n      |                 ~~^~~~~~~~~~~~~~~~\nhistogram_compare.cu: In instantiation of \u2018void TestMethods(PixelType*, int, int, int, double) [with int NUM_CHANNELS = 4; int ACTIVE_CHANNELS = 3; int NUM_BINS = 256; PixelType = uchar4]\u2019:\nhistogram_compare.cu:529:25:   required from here\nhistogram_compare.cu:480:19: warning: comparison of integer expressions of different signedness: \u2018int\u2019 and \u2018std::vector<std::pair<std::__cxx11::basic_string<char>, double> >::size_type\u2019 {aka \u2018long unsigned int\u2019} [-Wsign-compare]\nhistogram_compare.cu: In instantiation of \u2018void TestMethods(PixelType*, int, int, int, double) [with int NUM_CHANNELS = 4; int ACTIVE_CHANNELS = 3; int NUM_BINS = 256; PixelType = float4]\u2019:\nhistogram_compare.cu:546:25:   required from here\nhistogram_compare.cu:480:19: warning: comparison of integer expressions of different signedness: \u2018int\u2019 and \u2018std::vector<std::pair<std::__cxx11::basic_string<char>, double> >::size_type\u2019 {aka \u2018long unsigned int\u2019} [-Wsign-compare]\nhistogram_compare.cu: In member function \u2018void TgaHeader::Parse(FILE*)\u2019:\nhistogram_compare.cu:123:6: warning: ignoring return value of \u2018size_t fread(void*, size_t, size_t, FILE*)\u2019 declared with attribute \u2018warn_unused_result\u2019 [-Wunused-result]\n  123 |         fread(&colormaporigin, 2, 1, fptr);\n      |      ^  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nhistogram_compare.cu:124:6: warning: ignoring return value of \u2018size_t fread(void*, size_t, size_t, FILE*)\u2019 declared with attribute \u2018warn_unused_result\u2019 [-Wunused-result]\n  124 |         fread(&colormaplength, 2, 1, fptr);\n      |      ^  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nhistogram_compare.cu:126:6: warning: ignoring return value of \u2018size_t fread(void*, size_t, size_t, FILE*)\u2019 declared with attribute \u2018warn_unused_result\u2019 [-Wunused-result]\n  126 |         fread(&x_origin, 2, 1, fptr);\n      |      ^  ~~~~~~~~~~~~~~~~~~~~~~\nhistogram_compare.cu:127:6: warning: ignoring return value of \u2018size_t fread(void*, size_t, size_t, FILE*)\u2019 declared with attribute \u2018warn_unused_result\u2019 [-Wunused-result]\n  127 |         fread(&y_origin, 2, 1, fptr);\n      |      ^  ~~~~~~~~~~~~~~~~~~~~~~\nhistogram_compare.cu:128:6: warning: ignoring return value of \u2018size_t fread(void*, size_t, size_t, FILE*)\u2019 declared with attribute \u2018warn_unused_result\u2019 [-Wunused-result]\n  128 |         fread(&width, 2, 1, fptr);\n      |      ^  ~~~~~~~~~~~~~~~~~~~\nhistogram_compare.cu:129:6: warning: ignoring return value of \u2018size_t fread(void*, size_t, size_t, FILE*)\u2019 declared with attribute \u2018warn_unused_result\u2019 [-Wunused-result]\n  129 |         fread(&height, 2, 1, fptr);\n      |      ^  ~~~~~~~~~~~~~~~~~~~~\nnvcc  -std=c++17 -Xcompiler -Wall -arch=sm_60 -O3 histogram_compare.o -o main \n",
+  "correctness_diff": null,
+  "policy_violations": null,
+  "profile_digest": "Hardware counters:   available from Nsight Compute\nBound hint:          likely memory-latency limited\n\nOccupancy / utilization:\n  achieved occupancy:        8.3%\n  FMA pipe utilization:      0.5%\n  warp issue selected:       1.6%\n\nGlobal memory:\n  load bandwidth:            43.3 GB/s\n  store bandwidth:           0.8 GB/s\n  global load efficiency:    57.0%\n  L2 read hit rate:          unknown\n\nShared memory:\n  load bank conflicts:       0\n  store bank conflicts:      0\n\nWarp stalls:\n  memory / long scoreboard:  89.7%\n  barrier:                   1.2%\n  short dependency:          0.1%\n  wait:                      5.8%\n\nTop stall reasons:\n  memory/long scoreboard: 89.7%\n  wait: 5.8%\n  barrier: 1.2%\n\nInterpretation hints:\n  - occupancy below ~25% often points to register/smem/resource limits\n  - high memory/long-scoreboard stalls point to memory latency or cache misses\n  - global load efficiency below ~85% suggests uncoalesced/wasted transactions\n  - any shared-memory bank conflicts are worth investigating when smem is used\n  - compare load/store bandwidth against expected GPU peak before assuming bandwidth saturation\n\nStatic compiler resources:\n  _Z22histogram_gmem_atomicsILi1024ELi3ELi256E6float4EvPKT2_iiPj: regs/thread=20, static_smem=0 bytes\n  _Z22histogram_smem_atomicsILi1024ELi3ELi256E6float4EvPKT2_iiPj: regs/thread=30, static_smem=3084 bytes\n  _Z20histogram_gmem_accumILi1024ELi3ELi256EEvPKjiPj: regs/thread=14, static_smem=0 bytes\n  _Z22histogram_gmem_atomicsILi1024ELi3ELi256E6uchar4EvPKT2_iiPj: regs/thread=20, static_smem=0 bytes\n  _Z20histogram_smem_accumILi1024ELi3ELi256EEvPKjiPj: regs/thread=14, static_smem=0 bytes\n  _Z22histogram_smem_atomicsILi1024ELi3ELi256E6uchar4EvPKT2_iiPj: regs/thread=30, static_smem=3084 bytes\n  _Z20histogram_gmem_accumILi1024ELi1ELi256EEvPKjiPj: regs/thread=14, static_smem=0 bytes\n  _Z22histogram_gmem_atomicsILi1024ELi1ELi256E6uchar1EvPKT2_iiPj: regs/thread=20, static_smem=0 bytes\n  _Z20histogram_smem_accumILi1024ELi1ELi256EEvPKjiPj: regs/thread=14, static_smem=0 bytes\n  _Z22histogram_smem_atomicsILi1024ELi1ELi256E6uchar1EvPKT2_iiPj: regs/thread=26, static_smem=1036 bytes\n",
+  "program_output": "Random image: entropy-reduction(0) width(1920) height(1080)\n\n1 channel uchar1 tests (256-bin):\n\nShared memory atomics \tPASS\nAvg time 45.012 us (100 iterations)\nGlobal memory atomics \tPASS\nAvg time 47.212 us (100 iterations)\nTimings (us):\n\t 45.012 smem atomics (46.068 GB/s, 112.361% peak)\n\t 47.212 gmem atomics (43.921 GB/s, 107.124% peak)\n\n3/4 channel uchar4 tests (256-bin):\n\nShared memory atomics \tPASS\nAvg time 45.822 us (100 iterations)\nGlobal memory atomics \tPASS\nAvg time 119.102 us (100 iterations)\nTimings (us):\n\t 45.822 smem atomics (181.012 GB/s, 441.492% peak)\n\t 119.102 gmem atomics (69.641 GB/s, 169.857% peak)\n\n3/4 channel float4 tests (256-bin):\n\nShared memory atomics \tPASS\nAvg time 51.490 us (100 iterations)\nGlobal memory atomics \tPASS\nAvg time 119.020 us (100 iterations)\nTimings (us):\n\t 51.490 smem atomics (644.351 GB/s, 1571.589% peak)\n\t 119.020 gmem atomics (278.758 GB/s, 679.897% peak)\n\n\n\n",
+  "raw_files": [
+    "raw/compile_log.txt",
+    "raw/program_output.txt",
+    "raw/warmup_output.txt",
+    "raw/timing_raw.txt",
+    "raw/speedup.txt",
+    "raw/ptxas_log.txt",
+    "raw/static_resources.json",
+    "raw/profile.csv",
+    "raw/profile_digest.txt"
+  ],
+  "result": {
+    "baseline_median_ms": 0.024787,
+    "kernel": "histogram-cuda",
+    "kernel_path": "experiments/histogram-cuda/cond_B/workers/branch_4/src",
+    "median_ms": 0.045031999999999996,
+    "profile_backend": "ncu",
+    "profile_command": "sudo -n ncu",
+    "profile_digest_path": "raw/profile_digest.txt",
+    "speedup": 0.5504308047610589,
+    "status": "correct",
+    "timing_rel_stddev": 0.00045333721981140476,
+    "timing_runs_ms": [
+      0.045031999999999996,
+      0.044996,
+      0.045027,
+      0.045051,
+      0.045037999999999995
+    ]
+  },
+  "static_resources": {
+    "available": true,
+    "entries": [
+      {
+        "function": "_Z22histogram_gmem_atomicsILi1024ELi3ELi256E6float4EvPKT2_iiPj",
+        "regs_per_thread": 20,
+        "static_smem_bytes": 0
+      },
+      {
+        "function": "_Z22histogram_smem_atomicsILi1024ELi3ELi256E6float4EvPKT2_iiPj",
+        "regs_per_thread": 30,
+        "static_smem_bytes": 3084
+      },
+      {
+        "function": "_Z20histogram_gmem_accumILi1024ELi3ELi256EEvPKjiPj",
+        "regs_per_thread": 14,
+        "static_smem_bytes": 0
+      },
+      {
+        "function": "_Z22histogram_gmem_atomicsILi1024ELi3ELi256E6uchar4EvPKT2_iiPj",
+        "regs_per_thread": 20,
+        "static_smem_bytes": 0
+      },
+      {
+        "function": "_Z20histogram_smem_accumILi1024ELi3ELi256EEvPKjiPj",
+        "regs_per_thread": 14,
+        "static_smem_bytes": 0
+      },
+      {
+        "function": "_Z22histogram_smem_atomicsILi1024ELi3ELi256E6uchar4EvPKT2_iiPj",
+        "regs_per_thread": 30,
+        "static_smem_bytes": 3084
+      },
+      {
+        "function": "_Z20histogram_gmem_accumILi1024ELi1ELi256EEvPKjiPj",
+        "regs_per_thread": 14,
+        "static_smem_bytes": 0
+      },
+      {
+        "function": "_Z22histogram_gmem_atomicsILi1024ELi1ELi256E6uchar1EvPKT2_iiPj",
+        "regs_per_thread": 20,
+        "static_smem_bytes": 0
+      },
+      {
+        "function": "_Z20histogram_smem_accumILi1024ELi1ELi256EEvPKjiPj",
+        "regs_per_thread": 14,
+        "static_smem_bytes": 0
+      },
+      {
+        "function": "_Z22histogram_smem_atomicsILi1024ELi1ELi256E6uchar1EvPKT2_iiPj",
+        "regs_per_thread": 26,
+        "static_smem_bytes": 1036
+      }
+    ]
+  },
+  "status": "correct",
+  "summary": {
+    "baseline_median_ms": 0.024787,
+    "median_ms": 0.045031999999999996,
+    "profile_backend": "ncu",
+    "profile_command": "sudo -n ncu",
+    "speedup": 0.5504308047610589,
+    "status": "correct",
+    "timing_rel_stddev": 0.00045333721981140476
+  },
+  "timing": "run_1_ms=0.045032\nrun_2_ms=0.044996\nrun_3_ms=0.045027\nrun_4_ms=0.045051\nrun_5_ms=0.045038\nmedian_ms=0.045032\nrelative_stddev=0.00045333722\n\nrun 1\nRandom image: entropy-reduction(0) width(1920) height(1080)\n\n1 channel uchar1 tests (256-bin):\n\nShared memory atomics \tPASS\nAvg time 45.032 us (100 iterations)\nGlobal memory atomics \tPASS\nAvg time 47.345 us (100 iterations)\nTimings (us):\n\t 45.032 smem atomics (46.047 GB/s, 112.310% peak)\n\t 47.345 gmem atomics (43.798 GB/s, 106.824% peak)\n\n3/4 channel uchar4 tests (256-bin):\n\nShared memory atomics \tPASS\nAvg time 45.811 us (100 iterations)\nGlobal memory atomics \tPASS\nAvg time 119.168 us (100 iterations)\nTimings (us):\n\t 45.811 smem atomics (181.056 GB/s, 441.600% peak)\n\t 119.168 gmem atomics (69.602 GB/s, 169.762% peak)\n\n3/4 channel float4 tests (256-bin):\n\nShared memory atomics \tPASS\nAvg time 51.594 us (100 iterations)\nGlobal memory atomics \tPASS\nAvg time 119.086 us (100 iterations)\nTimings (us):\n\t 51.594 smem atomics (643.053 GB/s, 1568.421% peak)\n\t 119.086 gmem atomics (278.601 GB/s, 679.515% peak)\n\n\n\n\nrun 2\nRandom image: entropy-reduction(0) width(1920) height(1080)\n\n1 channel uchar1 tests (256-bin):\n\nShared memory atomics \tPASS\nAvg time 44.996 us (100 iterations)\nGlobal memory atomics \tPASS\nAvg time 47.348 us (100 iterations)\nTimings (us):\n\t 44.996 smem atomics (46.084 GB/s, 112.401% peak)\n\t 47.348 gmem atomics (43.795 GB/s, 106.818% peak)\n\n3/4 channel uchar4 tests (256-bin):\n\nShared memory atomics \tPASS\nAvg time 45.775 us (100 iterations)\nGlobal memory atomics \tPASS\nAvg time 119.284 us (100 iterations)\nTimings (us):\n\t 45.775 smem atomics (181.198 GB/s, 441.946% peak)\n\t 119.284 gmem atomics (69.535 GB/s, 169.597% peak)\n\n3/4 channel float4 tests (256-bin):\n\nShared memory atomics \tPASS\nAvg time 51.539 us (100 iterations)\nGlobal memory atomics \tPASS\nAvg time 119.071 us (100 iterations)\nTimings (us):\n\t 51.539 smem atomics (643.739 GB/s, 1570.096% peak)\n\t 119.071 gmem atomics (278.637 GB/s, 679.602% peak)\n\n\n\n\nrun 3\nRandom image: entropy-reduction(0) width(1920) height(1080)\n\n1 channel uchar1 tests (256-bin):\n\nShared memory atomics \tPASS\nAvg time 45.027 us (100 iterations)\nGlobal memory atomics \tPASS\nAvg time 47.295 us (100 iterations)\nTimings (us):\n\t 45.027 smem atomics (46.052 GB/s, 112.322% peak)\n\t 47.295 gmem atomics (43.844 GB/s, 106.936% peak)\n\n3/4 channel uchar4 tests (256-bin):\n\nShared memory atomics \tPASS\nAvg time 45.758 us (100 iterations)\nGlobal memory atomics \tPASS\nAvg time 119.323 us (100 iterations)\nTimings (us):\n\t 45.758 smem atomics (181.268 GB/s, 442.116% peak)\n\t 119.323 gmem atomics (69.512 GB/s, 169.542% peak)\n\n3/4 channel float4 tests (256-bin):\n\nShared memory atomics \tPASS\nAvg time 51.542 us (100 iterations)\nGlobal memory atomics \tPASS\nAvg time 119.316 us (100 iterations)\nTimings (us):\n\t 51.542 smem atomics (643.695 GB/s, 1569.989% peak)\n\t 119.316 gmem atomics (278.065 GB/s, 678.208% peak)\n\n\n\n\nrun 4\nRandom image: entropy-reduction(0) width(1920) height(1080)\n\n1 channel uchar1 tests (256-bin):\n\nShared memory atomics \tPASS\nAvg time 45.051 us (100 iterations)\nGlobal memory atomics \tPASS\nAvg time 47.391 us (100 iterations)\nTimings (us):\n\t 45.051 smem atomics (46.028 GB/s, 112.263% peak)\n\t 47.391 gmem atomics (43.755 GB/s, 106.719% peak)\n\n3/4 channel uchar4 tests (256-bin):\n\nShared memory atomics \tPASS\nAvg time 45.811 us (100 iterations)\nGlobal memory atomics \tPASS\nAvg time 119.364 us (100 iterations)\nTimings (us):\n\t 45.811 smem atomics (181.057 GB/s, 441.603% peak)\n\t 119.364 gmem atomics (69.489 GB/s, 169.484% peak)\n\n3/4 channel float4 tests (256-bin):\n\nShared memory atomics \tPASS\nAvg time 51.612 us (100 iterations)\nGlobal memory atomics \tPASS\nAvg time 119.138 us (100 iterations)\nTimings (us):\n\t 51.612 smem atomics (642.833 GB/s, 1567.886% peak)\n\t 119.138 gmem atomics (278.481 GB/s, 679.221% peak)\n\n\n\n\nrun 5\nRandom image: entropy-reduction(0) width(1920) height(1080)\n\n1 channel uchar1 tests (256-bin):\n\nShared memory atomics \tPASS\nAvg time 45.038 us (100 iterations)\nGlobal memory atomics \tPASS\nAvg time 47.404 us (100 iterations)\nTimings (us):\n\t 45.038 smem atomics (46.041 GB/s, 112.294% peak)\n\t 47.404 gmem atomics (43.743 GB/s, 106.691% peak)\n\n3/4 channel uchar4 tests (256-bin):\n\nShared memory atomics \tPASS\nAvg time 45.789 us (100 iterations)\nGlobal memory atomics \tPASS\nAvg time 119.223 us (100 iterations)\nTimings (us):\n\t 45.789 smem atomics (181.145 GB/s, 441.816% peak)\n\t 119.223 gmem atomics (69.570 GB/s, 169.684% peak)\n\n3/4 channel float4 tests (256-bin):\n\nShared memory atomics \tPASS\nAvg time 51.550 us (100 iterations)\nGlobal memory atomics \tPASS\nAvg time 119.133 us (100 iterations)\nTimings (us):\n\t 51.550 smem atomics (643.603 GB/s, 1569.764% peak)\n\t 119.133 gmem atomics (278.492 GB/s, 679.248% peak)\n\n\n\n"
+}

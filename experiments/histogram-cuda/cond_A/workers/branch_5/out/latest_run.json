@@ -1,0 +1,34 @@
+{
+  "compile_log": null,
+  "correctness_diff": null,
+  "policy_violations": null,
+  "profile_digest": null,
+  "program_output": null,
+  "raw_files": [],
+  "result": {
+    "baseline_median_ms": null,
+    "kernel": "histogram-cuda",
+    "kernel_path": "experiments/histogram-cuda/cond_A/workers/branch_5/src",
+    "max_runs": 7,
+    "median_ms": null,
+    "profile_backend": null,
+    "profile_digest_path": null,
+    "speedup": null,
+    "status": "iteration_limit",
+    "successful_runs": 7,
+    "timing_rel_stddev": null,
+    "timing_runs_ms": []
+  },
+  "static_resources": null,
+  "status": "iteration_limit",
+  "summary": {
+    "baseline_median_ms": null,
+    "median_ms": null,
+    "profile_backend": null,
+    "profile_command": null,
+    "speedup": null,
+    "status": "iteration_limit",
+    "timing_rel_stddev": null
+  },
+  "timing": null
+}

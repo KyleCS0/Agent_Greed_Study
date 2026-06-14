@@ -1,0 +1,11 @@
+{
+  "condition": "A",
+  "kernel": "softmax-cuda",
+  "kernel_path": "src",
+  "max_runs": 7,
+  "output_root": "out",
+  "policy_registry": "experiments/softmax-cuda/cond_A/.internal/policy_hashes.json",
+  "private_log": "experiments/softmax-cuda/cond_A/.internal/audit.jsonl",
+  "strategy_id": "rank_3",
+  "strategy_rank": 3
+}

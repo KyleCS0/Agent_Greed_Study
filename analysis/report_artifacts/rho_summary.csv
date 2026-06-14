@@ -1,0 +1,5 @@
+kernel,rho_A_short,rho_A_long,rho_B_short,rho_B_long,A_long_minus_short,B_long_minus_short,B_minus_A_long,gap_change_B_minus_A
+bitonic-sort,0.7,0.6,0.1,0.6,-0.1,0.5,0.0,0.6
+histogram,0.1,-0.4,0.3,0.6,-0.5,0.3,1.0,0.8
+softmax,-0.9,-0.3,-0.3,-0.9,0.6,-0.6,-0.6,-1.2
+stencil3d,-0.5,-0.6,0.4,0.3,-0.1,-0.1,0.9,0.0

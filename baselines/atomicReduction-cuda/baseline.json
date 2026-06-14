@@ -1,0 +1,13 @@
+{
+  "kernel": "atomicReduction-cuda",
+  "proposal_name": "reduction-cuda",
+  "status": "needs_confirmation",
+  "source_dir": "vendor/HeCBench/src/atomicReduction-cuda",
+  "binary": "./main",
+  "run_args": [],
+  "timing_regex": "The average performance of reduction is\\s*([0-9.]+)\\s*GBytes/sec",
+  "timing_unit": "GBps",
+  "higher_is_better": true,
+  "baseline_locked": false
+}
+

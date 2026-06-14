@@ -1,0 +1,17 @@
+{
+  "kernel": "bitonic-sort-cuda",
+  "status": "recon_only",
+  "source_dir": "vendor/HeCBench/src/bitonic-sort-cuda",
+  "binary": "./main",
+  "run_args": ["24", "2"],
+  "timing_regex": "Total kernel execution time:\\s*([0-9.]+)\\s*\\(ms\\)",
+  "timing_unit": "ms",
+  "arch": "sm_89",
+  "baseline_median_ms": 13.213934,
+  "observed_single_run": {
+    "samples_ms": [13.212857, 13.214783, 13.211884, 13.214268, 13.213934],
+    "median_ms": 13.213934,
+    "status": "PASS"
+  },
+  "baseline_locked": false
+}

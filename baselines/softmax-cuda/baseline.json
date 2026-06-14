@@ -1,0 +1,16 @@
+{
+  "kernel": "softmax-cuda",
+  "status": "recon_only",
+  "source_dir": "vendor/HeCBench/src/softmax-cuda",
+  "binary": "./main",
+  "run_args": ["600000", "784", "1", "30"],
+  "timing_regex": "Average kernel execution time:\\s*([0-9.]+)\\s*\\(ms\\)",
+  "timing_unit": "ms",
+  "observed_single_run": {
+    "median_ms": null,
+    "sample_ms": 6.847924,
+    "status": "PASS"
+  },
+  "baseline_locked": false
+}
+

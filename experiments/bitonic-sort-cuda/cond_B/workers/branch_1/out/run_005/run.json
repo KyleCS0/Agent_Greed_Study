@@ -1,0 +1,36 @@
+{
+  "compile_log": "$ make ARCH=sm_89\nnvcc  -std=c++17 -Xcompiler -Wall -arch=sm_89 -O3 -c main.cu -o main.o\nnvcc  -std=c++17 -Xcompiler -Wall -arch=sm_89 -O3 main.o -o main \n",
+  "correctness_diff": "missing pass token: PASS\n",
+  "policy_violations": null,
+  "profile_digest": null,
+  "program_output": "\nArray size: 16777216, seed: 2\nBitonic sort (parallel)..\nTotal kernel execution time: 8.618967 (ms)\nBitonic sort (serial)..\nFAIL\n",
+  "raw_files": [
+    "raw/compile_log.txt",
+    "raw/program_output.txt",
+    "raw/correctness_diff.txt"
+  ],
+  "result": {
+    "baseline_median_ms": null,
+    "kernel": "bitonic-sort-cuda",
+    "kernel_path": "experiments/bitonic-sort-cuda/cond_B/workers/branch_1/src",
+    "median_ms": null,
+    "profile_backend": null,
+    "profile_digest_path": null,
+    "speedup": null,
+    "status": "correctness_fail",
+    "timing_rel_stddev": null,
+    "timing_runs_ms": []
+  },
+  "static_resources": null,
+  "status": "correctness_fail",
+  "summary": {
+    "baseline_median_ms": null,
+    "median_ms": null,
+    "profile_backend": null,
+    "profile_command": null,
+    "speedup": null,
+    "status": "correctness_fail",
+    "timing_rel_stddev": null
+  },
+  "timing": null
+}

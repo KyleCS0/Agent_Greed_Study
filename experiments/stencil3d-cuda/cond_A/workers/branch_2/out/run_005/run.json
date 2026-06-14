@@ -1,0 +1,58 @@
+{
+  "compile_log": "$ make\nnvcc  -std=c++17 -Xcompiler -Wall -arch=sm_60 -O3 -c main.cu -o main.o\nnvcc warning : Support for offline compilation for architectures prior to '<compute/sm/lto>_75' will be removed in a future release (Use -Wno-deprecated-gpu-targets to suppress warning).\nnvcc  -std=c++17 -Xcompiler -Wall -arch=sm_60 -O3 main.o -o main \nnvcc warning : Support for offline compilation for architectures prior to '<compute/sm/lto>_75' will be removed in a future release (Use -Wno-deprecated-gpu-targets to suppress warning).\n",
+  "correctness_diff": null,
+  "policy_violations": null,
+  "profile_digest": "Hardware counters:   available from Nsight Compute\nBound hint:          likely memory-latency limited\n\nOccupancy / utilization:\n  achieved occupancy:        95.1%\n  FMA pipe utilization:      0.8%\n  warp issue selected:       0.3%\n\nGlobal memory:\n  load bandwidth:            677.8 GB/s\n  store bandwidth:           63.7 GB/s\n  global load efficiency:    80.5%\n  L2 read hit rate:          unknown\n\nShared memory:\n  load bank conflicts:       859303\n  store bank conflicts:      93485\n\nWarp stalls:\n  memory / long scoreboard:  25.8%\n  barrier:                   35.8%\n  short dependency:          19.5%\n  wait:                      0.7%\n\nTop stall reasons:\n  barrier: 35.8%\n  memory/long scoreboard: 25.8%\n  short dependency: 19.5%\n\nInterpretation hints:\n  - occupancy below ~25% often points to register/smem/resource limits\n  - high memory/long-scoreboard stalls point to memory latency or cache misses\n  - global load efficiency below ~85% suggests uncoalesced/wasted transactions\n  - any shared-memory bank conflicts are worth investigating when smem is used\n  - compare load/store bandwidth against expected GPU peak before assuming bandwidth saturation\n\nStatic compiler resources:\n  _Z9stencil3dPKdPdS0_S0_S0_iii: regs/thread=40, static_smem=0 bytes\n",
+  "program_output": "Grid dimension: nx=256 ny=256 nz=256\nAverage kernel execution time: 0.002558 (s)\n",
+  "raw_files": [
+    "raw/compile_log.txt",
+    "raw/program_output.txt",
+    "raw/warmup_output.txt",
+    "raw/timing_raw.txt",
+    "raw/speedup.txt",
+    "raw/ptxas_log.txt",
+    "raw/static_resources.json",
+    "raw/profile.csv",
+    "raw/profile_digest.txt"
+  ],
+  "result": {
+    "baseline_median_ms": 5.483,
+    "kernel": "stencil3d-cuda",
+    "kernel_path": "experiments/stencil3d-cuda/cond_A/workers/branch_2/src",
+    "median_ms": 2.559,
+    "profile_backend": "ncu",
+    "profile_command": "ncu",
+    "profile_digest_path": "raw/profile_digest.txt",
+    "speedup": 2.1426338413442747,
+    "status": "correct",
+    "timing_rel_stddev": 0.00032692248614181875,
+    "timing_runs_ms": [
+      2.558,
+      2.559,
+      2.56,
+      2.56,
+      2.559
+    ]
+  },
+  "static_resources": {
+    "available": true,
+    "entries": [
+      {
+        "function": "_Z9stencil3dPKdPdS0_S0_S0_iii",
+        "regs_per_thread": 40,
+        "static_smem_bytes": 0
+      }
+    ]
+  },
+  "status": "correct",
+  "summary": {
+    "baseline_median_ms": 5.483,
+    "median_ms": 2.559,
+    "profile_backend": "ncu",
+    "profile_command": "ncu",
+    "speedup": 2.1426338413442747,
+    "status": "correct",
+    "timing_rel_stddev": 0.00032692248614181875
+  },
+  "timing": "run_1_ms=2.558\nrun_2_ms=2.559\nrun_3_ms=2.56\nrun_4_ms=2.56\nrun_5_ms=2.559\nmedian_ms=2.559\nrelative_stddev=0.000326922486\n\nrun 1\nGrid dimension: nx=256 ny=256 nz=256\nAverage kernel execution time: 0.002558 (s)\n\nrun 2\nGrid dimension: nx=256 ny=256 nz=256\nAverage kernel execution time: 0.002559 (s)\n\nrun 3\nGrid dimension: nx=256 ny=256 nz=256\nAverage kernel execution time: 0.002560 (s)\n\nrun 4\nGrid dimension: nx=256 ny=256 nz=256\nAverage kernel execution time: 0.002560 (s)\n\nrun 5\nGrid dimension: nx=256 ny=256 nz=256\nAverage kernel execution time: 0.002559 (s)\n"
+}

@@ -1,0 +1,38 @@
+# Python/cache
+__pycache__/
+*.pyc
+
+# LaTeX intermediates
+*.aux
+*.log
+*.out
+*.toc
+*.synctex.gz
+
+# Local TeX/cache dirs
+.texmf/
+
+# Experiment build products and raw profiler output
+experiments/**/src/main
+experiments/**/*.o
+experiments/**/out/**/raw/
+experiments/**/*.nsys-rep
+experiments/**/.internal/
+experiments/**/.agent_greed_policy.json
+
+# Local scratch/archive dirs
+temp_research/
+archive/
+logs/
+workspaces/
+temp_scripts/
+.private_audit/
+.agents/
+.codex/
+.claude/
+
+# Baseline raw captures
+baselines/*/reference_output.txt
+baselines/*/baseline_profile.csv
+baselines/*/baseline_digest.txt
+baselines/*/timing_raw.txt

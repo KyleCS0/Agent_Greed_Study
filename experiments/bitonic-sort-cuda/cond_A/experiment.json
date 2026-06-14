@@ -1,0 +1,4 @@
+{
+  "condition": "A",
+  "kernel": "bitonic-sort-cuda"
+}

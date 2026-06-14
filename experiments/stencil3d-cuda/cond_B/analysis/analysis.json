@@ -1,0 +1,153 @@
+{
+  "branches": [
+    {
+      "actual_rank_long": 1.0,
+      "actual_rank_short": 1.0,
+      "attempt_statuses": [
+        "correct",
+        "correct",
+        "correct",
+        "correct",
+        "correct",
+        "correct",
+        "correct"
+      ],
+      "counted_statuses": [
+        "correct",
+        "correct",
+        "correct",
+        "correct",
+        "correct",
+        "correct",
+        "correct"
+      ],
+      "extra_successful_runs": 0,
+      "num_attempts_total": 7,
+      "num_successful_iterations": 7,
+      "peak_speedup_7": 4.9845454545454535,
+      "rank": 1,
+      "speedup_iter1": 2.9273892151628402
+    },
+    {
+      "actual_rank_long": 4.0,
+      "actual_rank_short": 3.0,
+      "attempt_statuses": [
+        "correct",
+        "correct",
+        "compile_error",
+        "correct",
+        "correct",
+        "correct",
+        "correct",
+        "correct",
+        "iteration_limit"
+      ],
+      "counted_statuses": [
+        "correct",
+        "correct",
+        "correct",
+        "correct",
+        "correct",
+        "correct",
+        "correct"
+      ],
+      "extra_successful_runs": 0,
+      "num_attempts_total": 9,
+      "num_successful_iterations": 7,
+      "peak_speedup_7": 2.2960636515912896,
+      "rank": 2,
+      "speedup_iter1": 2.271333885666943
+    },
+    {
+      "actual_rank_long": 3.0,
+      "actual_rank_short": 4.0,
+      "attempt_statuses": [
+        "correct",
+        "correct",
+        "correct",
+        "correct",
+        "correct",
+        "correct",
+        "correct"
+      ],
+      "counted_statuses": [
+        "correct",
+        "correct",
+        "correct",
+        "correct",
+        "correct",
+        "correct",
+        "correct"
+      ],
+      "extra_successful_runs": 0,
+      "num_attempts_total": 7,
+      "num_successful_iterations": 7,
+      "peak_speedup_7": 2.2979882648784575,
+      "rank": 3,
+      "speedup_iter1": 2.191446842525979
+    },
+    {
+      "actual_rank_long": 5.0,
+      "actual_rank_short": 5.0,
+      "attempt_statuses": [
+        "correct",
+        "correct",
+        "correct",
+        "correct",
+        "correct",
+        "correct",
+        "correct"
+      ],
+      "counted_statuses": [
+        "correct",
+        "correct",
+        "correct",
+        "correct",
+        "correct",
+        "correct",
+        "correct"
+      ],
+      "extra_successful_runs": 0,
+      "num_attempts_total": 7,
+      "num_successful_iterations": 7,
+      "peak_speedup_7": 1.4755113024757802,
+      "rank": 4,
+      "speedup_iter1": 1.463303976514545
+    },
+    {
+      "actual_rank_long": 2.0,
+      "actual_rank_short": 2.0,
+      "attempt_statuses": [
+        "profile_error",
+        "profile_error",
+        "profile_error",
+        "correct",
+        "correct",
+        "correct",
+        "correct",
+        "correct",
+        "correct",
+        "correct"
+      ],
+      "counted_statuses": [
+        "correct",
+        "correct",
+        "correct",
+        "correct",
+        "correct",
+        "correct",
+        "correct"
+      ],
+      "extra_successful_runs": 0,
+      "num_attempts_total": 10,
+      "num_successful_iterations": 7,
+      "peak_speedup_7": 2.777608915906788,
+      "rank": 5,
+      "speedup_iter1": 2.763608870967742
+    }
+  ],
+  "condition": "B",
+  "kernel": "stencil3d-cuda",
+  "spearman_iter1": 0.3999999999999999,
+  "spearman_peak7": 0.29999999999999993
+}

@@ -1,0 +1,9 @@
+kernel,condition,iter1_penalty_percent,peak7_penalty_percent,greediness_percentage_points
+bitonic-sort,A,11.4374,8.6319,2.8056
+histogram,A,7.5533,-5.2739,12.8272
+softmax,A,-4.2124,-0.2926,-3.9198
+stencil3d,A,-2.8478,-3.2037,0.3559
+bitonic-sort,B,0.7196,8.8354,-8.1158
+histogram,B,6.459,16.8852,-10.4263
+softmax,B,-0.6901,-1.5379,0.8478
+stencil3d,B,5.0253,20.5284,-15.5031

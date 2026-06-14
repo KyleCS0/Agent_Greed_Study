@@ -1,0 +1,14 @@
+{
+  "kernel": "stencil3d-cuda",
+  "status": "recon_only",
+  "source_dir": "vendor/HeCBench/src/stencil3d-cuda",
+  "binary": "./main",
+  "run_args": ["256", "100"],
+  "timing_regex": "Average kernel execution time:\\s*([0-9.]+)\\s*\\(s\\)",
+  "timing_unit": "s",
+  "observed_single_run": {
+    "sample_s": 0.005483
+  },
+  "baseline_locked": false
+}
+
