@@ -119,8 +119,8 @@ def plot_preference_penalty(metrics: list[dict]) -> None:
     fig, ax = plt.subplots(figsize=(5.4, 3.1))
     ax.axhline(0, color="#333333", linewidth=0.8)
     bars = ax.bar(labels, values, color=colors, edgecolor="#333333", linewidth=0.6)
-    ax.set_ylabel("Penalty per lower preference position (%)")
-    ax.set_title("Magnitude-aware preference alignment")
+    ax.set_ylabel("Speedup drop per rank step (%)")
+    ax.set_title("Does Claude's ranking predict speedup?")
     for bar, value in zip(bars, values):
         ax.text(
             bar.get_x() + bar.get_width() / 2,
@@ -150,8 +150,8 @@ def plot_top_choice_regret(regret_summary: list[dict]) -> None:
 
     fig, ax = plt.subplots(figsize=(5.4, 3.1))
     bars = ax.bar(labels, values, color=colors, edgecolor="#333333", linewidth=0.6)
-    ax.set_ylabel("Mean regret from first preference (%)")
-    ax.set_title("Cost of following Claude's first-preferred direction")
+    ax.set_ylabel("Speedup left on table by following P1 (%)")
+    ax.set_title("Cost of following Claude's top pick (lower = better)")
     for bar, value in zip(bars, values):
         ax.text(
             bar.get_x() + bar.get_width() / 2,
@@ -165,6 +165,58 @@ def plot_top_choice_regret(regret_summary: list[dict]) -> None:
     fig.tight_layout()
     fig.savefig(PLOTS / "top_choice_regret.pdf")
     fig.savefig(PLOTS / "top_choice_regret.png", dpi=200)
+    plt.close(fig)
+
+
+def plot_per_kernel_penalty(per_kernel_rows: list[dict]) -> None:
+    kernels = ["bitonic-sort", "histogram", "softmax", "stencil3d"]
+    kernel_labels = ["bitonic-sort", "histogram", "softmax", "stencil3d"]
+    conditions = ["A", "B"]
+    cond_titles = {"A": "Condition A (default prompt)", "B": "Condition B (long-horizon prompt)"}
+
+    col_iter1 = "#6f8fc7"
+    col_peak7 = "#d08a57"
+    bar_width = 0.35
+
+    fig, axes = plt.subplots(1, 2, figsize=(7.2, 3.4), sharey=True)
+    for ax, cond in zip(axes, conditions):
+        data = {r["kernel"]: r for r in per_kernel_rows if r["condition"] == cond}
+        xs = range(len(kernels))
+        iter1_vals = [data[k]["iter1_penalty_percent"] for k in kernels]
+        peak7_vals = [data[k]["peak7_penalty_percent"] for k in kernels]
+
+        bars1 = ax.bar(
+            [x - bar_width / 2 for x in xs], iter1_vals,
+            width=bar_width, label="Iteration 1",
+            color=col_iter1, edgecolor="#333333", linewidth=0.6,
+        )
+        bars2 = ax.bar(
+            [x + bar_width / 2 for x in xs], peak7_vals,
+            width=bar_width, label="Peak over 7",
+            color=col_peak7, edgecolor="#333333", linewidth=0.6,
+        )
+        ax.axhline(0, color="#333333", linewidth=0.8)
+        ax.set_xticks(list(xs))
+        ax.set_xticklabels(kernel_labels, fontsize=8, rotation=15, ha="right")
+        ax.set_title(cond_titles[cond], fontsize=9)
+        ax.set_xlabel("")
+
+        for bar, val in list(zip(bars1, iter1_vals)) + list(zip(bars2, peak7_vals)):
+            offset = 0.4 if val >= 0 else -1.2
+            va = "bottom" if val >= 0 else "top"
+            ax.text(
+                bar.get_x() + bar.get_width() / 2,
+                val + offset,
+                f"{val:.1f}",
+                ha="center", va=va, fontsize=6.5,
+            )
+
+    axes[0].set_ylabel("Speedup drop per rank step (%)")
+    axes[0].legend(fontsize=8, frameon=False, loc="upper right")
+    fig.suptitle("Per-kernel preference alignment: Iteration 1 vs. Peak over 7", fontsize=10)
+    fig.tight_layout()
+    fig.savefig(PLOTS / "per_kernel_penalty.pdf")
+    fig.savefig(PLOTS / "per_kernel_penalty.png", dpi=200)
     plt.close(fig)
 
 
@@ -354,7 +406,8 @@ def main() -> None:
     plot_preference_penalty(metric_rows)
     plot_top_choice_regret(regret_summary)
     plot_trajectory_cases()
-    for name in ["preference_penalty.pdf", "top_choice_regret.pdf", "trajectory_cases.pdf"]:
+    plot_per_kernel_penalty(per_kernel_penalty_rows)
+    for name in ["preference_penalty.pdf", "top_choice_regret.pdf", "trajectory_cases.pdf", "per_kernel_penalty.pdf"]:
         shutil.copy2(PLOTS / name, ASSETS / name)
 
     lines = [
