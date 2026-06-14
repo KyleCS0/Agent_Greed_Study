@@ -79,9 +79,9 @@ iteration-1 penalty of 3.0\% per lower agent-ranking position but essentially
 no final-speedup penalty, 0.0\%. The long-horizon prompt kept similar
 iteration-1 alignment, 2.9\%, but raised final-speedup alignment to 11.2\%.
 It also reduced top-choice final-speedup regret from 26.1\% to 10.8\%. The
-logs show why prompting helps but is insufficient: Claude still exhibits
-salient-metric fixation, wrong mechanism selection, algorithmic elegance bias,
-and resource-tradeoff misses.
+logs show why prompting helps but is insufficient: in these runs, Claude still
+shows salient-metric fixation, wrong mechanism selection, algorithmic elegance
+bias, and resource-tradeoff misses.
 \end{abstract}
 
 \begin{IEEEkeywords}
@@ -122,7 +122,7 @@ iterations are simply the controlled search budget used to approximate
 continuing optimization.
 
 The contribution is not a new CUDA optimization technique. The contribution is
-a controlled analysis of LLM-guided optimization behavior. I compare the two
+a controlled analysis of LLM-guided optimization behavior. We compare the two
 prompt conditions, use magnitude-aware metrics instead of pure rank agreement,
 and connect the numerical results to Worker logs. The main finding is that
 Claude's default ranking weakly predicts which plan works immediately, but
@@ -137,7 +137,7 @@ profiler signals and GPU resource tradeoffs.
 
 The experiment uses CUDA kernels from HecBench, a heterogeneous-computing
 benchmark suite with GPU implementations of common algorithms and application
-kernels~\cite{hecbench}. I use four kernels whose optimization behavior is
+kernels~\cite{hecbench}. We use four kernels whose optimization behavior is
 understandable from code and profiler evidence, while still offering multiple
 plausible optimization angles. This selection supports interpretable
 trajectory analysis rather than broad benchmark coverage.
@@ -185,7 +185,7 @@ closer to the goal of this line of work: finding a strong kernel implementation.
 \subsection{Agent Ranking Probe and Worker Execution}
 
 For each kernel and prompt condition, Claude generated five candidate
-optimization plans and ordered them from P1 to P5. I call this order the
+optimization plans and ordered them from P1 to P5. We call this order the
 \emph{agent ranking}. This ranking is not intended to model a normal user
 interface; it is a probe for Claude's preference before outcome feedback. Each
 ranked plan was assigned to an independent Worker branch. The Worker received
@@ -222,16 +222,16 @@ plan ranking.
 \subsection{Magnitude-Aware Metrics}
 
 Pure rank metrics are too coarse for this question because they treat near ties
-and large losses equally. I instead use a magnitude-aware rank-step penalty.
+and large losses equally. We instead use a magnitude-aware rank-step penalty.
 For one fixed kernel, prompt condition, and evaluation horizon, let $s_p$ be
-the speedup of the plan at ranking position $p\in\{1,\ldots,5\}$. I first
+the speedup of the plan at ranking position $p\in\{1,\ldots,5\}$. We first
 divide each speedup by the geometric mean of the five plans:
 \begin{equation}
 g=\left(\prod_{p=1}^{5}s_p\right)^{1/5}, \qquad y_p=\frac{s_p}{g}.
 \end{equation}
 Thus $y_p=1$ means average for that kernel, $y_p=1.10$ means 10\% above that
 kernel's typical plan, and $y_p=0.90$ means 10\% below it. After this
-normalization, I pool the points for a condition and horizon and fit a straight
+normalization, we pool the points for a condition and horizon and fit a straight
 line from P1 to P5:
 \begin{equation}
 y_p = a + bp + \epsilon_p .
@@ -241,16 +241,18 @@ one position lower in Claude's ranking corresponds to about 3\% lower speedup
 relative to that kernel's typical branch. Positive means the ranking predicts
 speedup; zero means it does not; negative means it is inverted.
 
-I use this penalty at two horizons: iteration 1 and best speedup after the
+We use this penalty at two horizons: iteration 1 and best speedup after the
 fixed Worker budget. The \emph{greediness score} is the iteration-1 penalty
 minus the final-speedup penalty. Positive greediness means the ranking is more
 aligned with immediate gain; negative greediness means it is more aligned with
-longer-horizon gain. Finally, I report top-choice regret:
+longer-horizon gain. Finally, we report top-choice regret:
 \begin{equation}
 R=\frac{s_{\mathrm{best}}-s_1}{s_{\mathrm{best}}}.
 \end{equation}
 This regret metric estimates the cost of following Claude's first-ranked plan
 instead of exploring all five starting directions.
+It also makes a one-rank miss on a near tie count less than a one-rank miss
+that leaves a large amount of speedup on the table.
 
 \section{Experimental Setup}
 
@@ -260,6 +262,11 @@ five ranked plans per condition. All experiments were conducted using Claude Cod
 from the same original kernel baseline for its kernel. Speedup is measured
 against that fixed baseline, and correctness is required before timing contributes
 to analysis.
+The recorded experiment environment was an NVIDIA GeForce RTX 3080 Ti with
+NVIDIA driver 580.126.09, CUDA driver version 13.0, and nvcc 12.0.140. Each
+timed run used one warmup execution followed by five measured executions, with
+the median time used for speedup. Branches were run sequentially, and the
+execution plan required an idle-GPU check before launching each Worker branch.
 Across all conditions, 280 of 308 Worker attempts produced correct outputs.
 The non-counted attempts were 9 compile errors, 8 correctness failures, 3
 profiling infrastructure errors, and 8 iteration-limit events. The median
@@ -313,6 +320,10 @@ percentage points to -8.3 percentage points: the ranking becomes more aligned
 with final speedup than with first-step payoff. This is the cleanest evidence
 that the prompt does not simply make every branch faster. It changes Claude's
 preference over starting directions.
+The per-kernel penalties support the same direction but also show heterogeneity:
+Condition B improves final-speedup alignment for bitonic-sort, histogram, and
+stencil3d, while softmax remains slightly inverted. Thus the aggregate result is
+not a universal success claim; it is a strong pattern with one clear exception.
 
 \subsection{Practical Regret from Trusting P1}
 
@@ -443,6 +454,10 @@ the main log-derived cases. These cases explain why the default ranking can
 look reasonable in the first iteration while failing to identify the best
 trajectory. They also show why the long-horizon prompt helps only sometimes:
 Claude must still choose the correct causal mechanism.
+Here, salient-metric fixation means over-weighting a visible profiler symptom,
+algorithmic elegance bias means favoring a theoretically appealing rewrite over
+a simpler hardware-effective change, and a resource-tradeoff miss means
+improving one GPU resource while overlooking the cost paid in another.
 
 \begin{table*}[t]
 \centering
@@ -547,9 +562,11 @@ having profiler data and using it correctly.
 \subsection{Threats to Validity}
 
 The study is small: four kernels and five generated plans per condition. The
-statistics are descriptive rather than significance claims. Worker quality also
-affects measured trajectory value; a branch may underperform because the Worker
-did not find the best implementation of its assigned plan within the budget.
+statistics are descriptive rather than significance claims, and the findings
+should be read as evidence about this controlled workflow rather than a broad
+claim about all kernels or all LLM agents. Worker quality also affects measured
+trajectory value; a branch may underperform because the Worker did not find the
+best implementation of its assigned plan within the budget.
 This is partly intentional, because the experiment evaluates a realistic
 plan-generation plus Worker workflow rather than oracle implementations.
 Finally, results may vary with GPU architecture, prompt wording, and benchmark
